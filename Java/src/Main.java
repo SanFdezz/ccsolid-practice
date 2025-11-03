@@ -1,9 +1,14 @@
-import solid.modules.Animal;
+import solid.modules.*;
 
 public class Main {
     public static void main(String[] args) {
-        Animal.animalflightDistance("Danny", "cat");
-        Animal.animalSound("Danny", "cat");
-        Animal.animalTeeths("Danny", "cat");
+        Cat cat1 = new Cat("Katty");
+        System.out.println(cat1.toString());
+        Dog dog1 = new Dog("Bull");
+        System.out.println(dog1.toString());
+        Chicken chicken1 = new Chicken("Chicken");
+        System.out.println(chicken1.toString());
+        Duck duck1 = new Duck("Duck");
+        System.out.println(duck1.toString());
     }
 }
