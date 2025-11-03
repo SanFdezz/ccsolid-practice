@@ -1,4 +1,4 @@
-import solid.Animal;
+import solid.modules.Animal;
 
 public class Main {
     public static void main(String[] args) {
