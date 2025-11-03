@@ -1,3 +1,5 @@
+import cleancode.Calculadora;
+import cleancode.Operation;
 import solid.modules.*;
 
 public class Main {
@@ -10,5 +12,8 @@ public class Main {
         System.out.println(chicken1.toString());
         Duck duck1 = new Duck("Duck");
         System.out.println(duck1.toString());
+
+        System.out.println(Calculadora.operation(10,2, Operation.MULTIPLICATION));
+
     }
 }

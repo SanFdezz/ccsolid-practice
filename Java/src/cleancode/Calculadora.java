@@ -3,46 +3,43 @@ package cleancode;
 import java.util.function.BiFunction;
 
 public class Calculadora {
-    public static float op(float a, float b, String operation) {
+    public static float operation(float number1, float number2, Operation operation) {
         switch (operation) {
-            case "a":
-                return a + b;
-            case "s":
-                return a - b;
-            case "m":
-                return a * b;
-            case "d":
-                if (b != 0) {
-                    return a / b;
+            case Operation.ADDITION:
+                return number1 + number2;
+            case Operation.SUBTRACTION:
+                return number1 - number2;
+            case Operation.MULTIPLICATION:
+                return number1 * number2;
+            case Operation.DIVISION:
+                if (number2 != 0) {
+                    return number1 / number2;
                 } else {
                     System.out.println("Error: Cannot divide by zero.");
-                    return a;
+                    return number1;
                 }
-            default:
-                System.out.println("Error: Invalid operation.");
-                return a;
         }
+        return number1;
     }
 
-    public static double calc(float num) {
-        float res = num;
+    public static double calculator(float number) {
+        float result = number;
 
-        res = op(res, 5, "a");
-        res = op(res, 3, "m");
-        res = op(res, 2, "s");
-        res = op(res, 4, "d");
+        result = operation(result, 5, Operation.ADDITION);
+        result = operation(result, 3, Operation.MULTIPLICATION);
+        result = operation(result, 2, Operation.SUBTRACTION);
+        result = operation(result, 4, Operation.DIVISION);
 
-        res = op(res, 10, "a");
-        res = op(res, 2, "m");
+        result = operation(result, 10, Operation.ADDITION);
+        result = operation(result, 2, Operation.MULTIPLICATION);
 
         BiFunction<Float, Float, Float> custom = (a, b) -> { return a + b * 2F; };
+        result = custom.apply(result, 5f);
 
-        res = custom.apply(res, 5f);
+        result = operation(result, 3, Operation.MULTIPLICATION);
+        result = operation(result, 8, Operation.DIVISION);
+        result = operation(result, 2, Operation.ADDITION);
 
-        res = op(res, 3, "m");
-        res = op(res, 8, "d");
-        res = op(res, 2, "a");
-
-        return res;
+        return result;
     }
 }
